@@ -11,20 +11,26 @@ export default class Calculator extends LightningElement {
     handleSecondChange(event) {
         this.secondNum = parseFloat(event.target.value);
     };
+    
+    handleBtns(event) {
+        let operator = event.target.dataset.id;
 
-    handleAdd() {
-        this.result = this.firstNum + this.secondNum;
-    };
+        switch (operator) {
+            case "Add":
+                this.result = this.firstNum + this.secondNum;
+                break;
+        
+            case "Substract":
+                this.result = this.firstNum - this.secondNum;
+                break;
 
-    handleSubstract() {
-        this.result = this.firstNum - this.secondNum;
-    };
+            case "Multiply":
+                this.result = this.firstNum * this.secondNum;
+                break;
 
-    handleMultiply() {
-        this.result = this.firstNum * this.secondNum;
-    };
-
-    handleDivide() {
-        this.result = this.firstNum / this.secondNum;
-    };
+            case "Divide":
+                this.result = this.firstNum / this.secondNum;
+                break;
+        }
+    }
 }
